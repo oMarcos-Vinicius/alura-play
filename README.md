@@ -103,3 +103,45 @@
 <p>[07:25] O return estamos pedindo, retornar conexão convertida, ele vai fazer tudo lá dentro da função e depois vai retornar o valor da variável conexão convertida. E também no final, botamos um export que ele vai exportar o que estamos pedindo ali, ele vai exportar uma variável chamada conectaApi, que vai receber um objeto cheio de funções. Nós conseguimos passar tudo ali dentro e usar só o que quisermos.</p>
 
 <p>[07:50] Você vai ver melhor como é que vamos usar isso, quando formos imprimir na tela, que é o que vamos fazer no próximo vídeo. Então, até lá.</p>
+
+<h2>05. Manipulando o DOM</h2>
+
+<p>[00:00] No último vídeo, nós criamos a função que vai fazer a conexão com API. E vai retornar os dados para nós. Nós já aproveitamos e fizemos o export dessa função, para poder ser utilizado em outros arquivos.</p>
+
+<p>[00:10] E para fazer esses dados aparecerem na tela, vamos criar outro arquivo com outras funções. Então dentro da pasta js, vamos criar o arquivo mostrarVideos.js. E antes de escrever qualquer coisa, vamos importar no index.html.</p>
+
+<p>[00:30] Então lá na linha 83, onde antes tinha a conexão com o arquivo conetaApi, vamos só trocar esse nome para o arquivo MostrarVideos.jse vamos colocar type="module".</p>
+
+<p>[00:43] Isso acontece porque quando a gente trabalha com import, export porte para poder usar trechos de código em outro arquivo, estamos trabalhando com o modularização, então precisamos declarar que isso está acontecendo, e para fazer isso é só botar um type"module.</p>
+
+<p>[00:59] Então como é que vamos selecionar o elemento da lista para começar a trabalhar nisso? Porque queremos fazer a lista dinâmica. Vamos lá na linha 37, onde tem o elemento ule l e vai escrever dentro dele data-lista. Depois, vamos lá em mostrarVideos.js e vai finalmente começar a codar.</p>
+
+<p>[01:20] Então eu vou criar uma variável do tipo constante chamada lista const lista = document. querySelector("[data-lista]").</p>
+
+<p>[01:38] Isso que estamos fazendo são data attribute, que servem para individualizar esses elementos e conseguirmos manipular o DOM através deles. a estrutura padrão é um data, hífen e o nome que você quiser, eu botei data, hífen lista, só para ficar bem claro do que nós estamos tratando.</p>
+
+<p>[01:56] Tendo isso, precisamos começar a construir aqueles li's que tem dentro do elemento de listas. Então para isso, vamos criar uma função chamada constroiCard() {}. Dentro das chaves vamos criar uma variável do tipo constante também const video = document.createElemnt("li").</p>
+
+<p>[02:27] No vídeo, na linha cinco vamos colocar video.className = "videos", deixa eu ver se são vídeos. Vou index.html para comparar, ver qual que é a classe que eles usam no li. Fica na linha 38 évideos__item.</p>
+
+<p>[02:46] Então volto no mostrar vídeos, e vou botar no video.className = "videos__item". Salvei.</p>
+
+<p>[02:55] Aqui é bem como se fosse a tradução. Eu estou criando um elemento li e botei a classe vídeos item, e agora eu tenho um elemento e tenho uma classe. E todo aquele HTML que tem dentro dessa li como é que eu boto?</p>
+
+<p>[03:09] Vamos lá no index.html e vamos copiar tudo que tem dentro do primeiro li, da linha 39 a 47, eu dou um Ctrl + C. E novamente no mostrarVídeos.js, embaixo da definição da classe eu vou botar um video.innerHTML =e vou botar duas crases, e dentro dessas crases, eu vou botar esse código que eu copiei</p>.
+
+<p>[03:31] E depois eu vou dar um return video;. Aqui na tela já botei todo o código, e na HTML ele faz, o que dá para entender já é uma frase aqui, ele bota um HTML dentro daquele elemento. Então ele botou um teste de HTML dentro do li, que foi tudo que já tinha lá.</p>
+
+<p>[03:49] E depois eu retornei tudo que eu fiz na tela, então já temos em JavaScript toda a construção daquele primeiro elemento, e tudo o que tem dentro dele. E retornei ele para usar em outro lugar, que precisamos botar várias coisas dentro dele ainda.</p>
+
+<p>[04:04] E uma das coisas, é aquela lista que a gente recebeu, são os valores daquela lista. E para acessar a função que está fazendo essa requisição e trazendo a lista, vamos lá na primeira linha, vai botar um import {conectaApi} from ";/conectaApi.js";. Agora conseguimos usar o conectaApi e as funções que tem dentro dele.</p>
+
+<p>[04:38] E eu vou criar outra função para consumir aquelas funções do conectaApi. Então vou criar uma função assíncrona também, que vai ser async function listaVideo()dentro dela vou criar outra variável constante, const lista = await conectaApi.listaVídeos();. Agora ele vai esperar tudo aquilo se resolver e vai retornar para mim a lista, aquela lista de vídeos que temos no db.jason. E vamos conseguir usar ela para fazer outras coisas, para criar cards para cada um daqueles itens da lista.</p>
+
+<p>[05:17] Então eu digo que isso aqui às vezes é só traduzirmos. Então lá na linha um, o que eu fiz? Eu importei aquela variável que eu estava exportando do conectaApi, e também eu fiz toda aquela questão de assincronicidade quando eu criei a função lista vídeos aqui também. Porque se não aguardarmos as coisas se resolverem, as promessas se resolverem, nunca vamos ter acesso ao valor em si.</p>
+
+<p>[05:40] E se você deseja se aprofundar mais ainda na questão de assincronicidade, eu te recomendo passar lá no curso JavaScript consumindo e tratando dados de uma API, onde eu mesma te abordo sobre todos esses tópicos de requisições, GET, de assincronicidade, de async await, de .then(), de .catch(), várias coisas. Te recomendo fortemente passar lá.</p>
+
+<p>[06:02] E agora como é que eu posso pegar todos esses dados da lista e para cada um deles criar o card específico? Eu chamo de card, mas é cada um dos quadradinhos que aparecem todas as informações dos vídeos.</p>
+
+<p>[06:15] Vamos brincar um pouco com o DOM, um pouco mais, porque aqui já brincamos. Vamos brincar um pouco mais com o DOM e funções nativas do JavaScript. E eu te vejo no próximo vídeo para isso. Até logo.</p>
