@@ -145,3 +145,44 @@
 <p>[06:02] E agora como é que eu posso pegar todos esses dados da lista e para cada um deles criar o card específico? Eu chamo de card, mas é cada um dos quadradinhos que aparecem todas as informações dos vídeos.</p>
 
 <p>[06:15] Vamos brincar um pouco com o DOM, um pouco mais, porque aqui já brincamos. Vamos brincar um pouco mais com o DOM e funções nativas do JavaScript. E eu te vejo no próximo vídeo para isso. Até logo.</p>
+
+<h2>06. forEach()</h2>
+
+<p>[00:00] Construímos a função constroiCard que cria outros itens da lista do index.html, e também criamos a função listaVídeos que nos retorna o valor da nossa API, do db.json. Agora precisamos conectar essas duas funcionalidades, para cada item da lista da nossa API, um item da lista do index.html deve ser criado.</p>
+
+<p>[00:23] E agora já olhando aqui meu código, eu já vi que eu botei duas variáveis com o mesmo nome, a da lista da API, e a da lista do index.html, e eu vou trocar o nome da lista da API para ficar mais fácil de entender.</p>
+
+<p>[00:35] Então lá na linha 22, no centro da tela, onde tínhamos declarada const lista, agora será const listaApi. E na linha 22 damos um Enter, para a linha 23 vir limpa, vamos botar listaApi.forEach(), esse método ele significa para cada, então para cada item da lista da API alguma coisa vai acontecer, e eu vou criar uma função ali dentro que vai ser elemento => lista. appenChild()).</p>
+
+<p>[01:14] O que eu fiz aqui dentro? Eu mandei uma função, maior function para o ForEach. Esse elemento que eu declarei antes, ele vai significar cada uma das coisas que estão passando. Então para cada item da lista API, ele vai se chamar elemento e vai acontecer alguma coisa que está aqui dentro, o que vai acontecer é o lista appendChild, que quando falamos de DOM, que estamos mexendo no DOM, é tudo muito família, trabalhamos com pais, trabalhamos com filhos, e aqui não vai ser diferente.</p>
+
+<p>[01:45] A lista do index.html, que é o elemento ul, ela tem vários ali dentro dela, ou seja, ela é o pai desses lis. E os lis são filhos.</p>
+
+<p>[01:53] Então a função, o método appendChild, ele vai anexar outros filhos para ela, outros filhos para o pai que é a lista. Os filhos que ele vai anexar, é que vai voltar lá no nosso constroiCard. Então ele vai construir vários lis para colocar dentro do ul, que é a nossa variável lista.</p>
+
+<p>[02:15] Então eu vou chamar a função ConstrutoiCard dentro da appendChid, e ela vai receber os valores do elemento, que é o elemento.titulo, elemento.descrição, elemento.url. elemento.imagem. Eu vou dar um Enter aqui no constroiCard só para vermos tudo junto na tela, não precisa, pode ficar na mesma linha.</p>
+
+<p>[02:42] Vamos de novo, recapitular que essa parte é muita coisa. Nós, para cada item da lista da API criou um card, que seria uma li, que foi anexada dentro da ul dentro do index.html, que estamos referenciando como lista. Então fazendo isso estamos criando o que queríamos, a conexão das duas funções, para cada item da lista uma li será criada.</p>
+
+<p>[03:10] E já tendo isso, vamos transformar essas lis em dinâmica, porque quando eu construí a função constroiCard, eu só copiei o valor que tinha dentro do primeiro li lá do index.html.</p>
+
+<p>[03:26] Então vou copiar todos esses elemento.titulo, elemento.descrição, elemento.url. elemento.imagem, vou copiar e vou botar lá no parênteses da linha cinco. E vou apagar tudo que diz elemento ponto, eu só quero a outra informação.</p>
+
+<p>[03:41] Agora ele vai esperar receber esses valores, título, descrição, URL e imagem e vamos poder usar em outros lugares ali dentro, que vai ser lá dentro do innerHTML.</p>
+
+<p>[03:52] Então, na linha oito onde tem o link do vídeo, vamos apagar o link, vamos botar um ${url}.Na linha nove, onde tem título, vamos tirar o título que é YouTube video player, e vai botar ${titulo}. Na linha 13, que tem o img src, vamos tirar o diretório do logo e vamos colocar um ${imagem};</p>
+
+<p>[04:33] E na linha 14 também vamos apagar todo o título, botar ${titulo}. No <p>na linha 15 nós vamos colocar ${descricao}.</p>
+
+<p>[04:50] Então agora já temos as coisas dinâmicas, a estrutura que estamos botando aqui, ela se chama Template Strings. Conseguimos botar variadas, através da estrutura que é o cifrão, abre e fecha chaves e o nome da variável, e ela se unirá a toda string que estávamos colocando, como se ela já fizesse parte. Na hora que for imprimir elas não vão aparecer como variáveis, elas vão aparecer como parte da string.</p>
+
+<p>[05:15] E para isso funcionar, por isso que eu botei aquela crase, em vez das aspas duplas, ou aspas simples, lá quando eu atribui qualquer coisa para dentro inner.HTML. As templates strings funcionam. Elas nos ajudam muito a fazer essas coisas dinâmicas.</p>
+
+<p>[05:32] Então, o que falta aqui? Só chamar listaVideos para acontecer. Então vamos na linha 26, dá um Enter a mais, só para ter certeza que está lá no final de tudo. Vamos chamar a listaVídeo();, salvamos e vamos olhar o resultado do navegador.</p>
+
+<p>[05:48] Agora se eu estou indo para baixo, dá para ver que já tem vários vídeos novos que não estavam aparecendo antes. Então, ou seja, está funcionando a nossa conexão, já está listando na tela todos os itens que gostaríamos, mas ainda esses três, quatro primeiros no canto inferior do centro da tela, eles já estavam antes, eles estão fixos não foram frutos da nossa conexão com API.</p>
+
+<p>[06:09] Então vamos tirar o nosso index.html. Vamos tirar lá da linha 38 a linha 81, vou apagar tudo. Salvamos e vamos olhar navegador de novo, não deu erro nenhum, agora a única coisa que fizemos é que agora realmente só vai aparecer coisas dinâmicas na nossa tela.</p>
+
+<p>[06:32] Primeira tarefa que o nosso chefe, líder técnico da Alura pediu concluída. Nossa segunda, era como inserir novos vídeos nessa lista. E no próximo vídeo, nós vamos fazer isso. Até lá.</p>
+
