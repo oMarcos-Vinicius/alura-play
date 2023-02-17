@@ -260,3 +260,29 @@
 
 <p>[07:25] E já que fizemos bastante coisa aqui, já interagimos bastante com o DOM, já olhamos um fofoqueiro com a add.EventListener, eu vou deixar para o próximo vídeo para fazer esse envio. Então até daqui a pouco.</p>
 
+<h2>06. Enviar vídeos</h2>
+
+<p>[00:00] Nós construímos uma função que fazia a conexão com API possibilitando a inserção de novos dados. Também criamos outra função que captava os dados que o usuário digitava no formulário da AluraPlay, e agora que falta? Unir essas duas funções. Queremos captar os dados e mandar para API.</p>
+
+<p>[00:18] Então para fazer isso. Eu quero que você abra o Visual Studio Code, lá no criaVideo.js, no canto inferior esquerdo da tela, vamos importar lá na linha um, você pode dar um Enter porque estávamos criando a variável formulário. Na linha um, você vai digitar import {conectaApi} from "/conectaApi.js";.</p>
+
+<p>[00:51] Dentro da função criarVideo vamos ter que colocar conectaApi.criaVideo(titulo, descricao, url, imagem);. Isso que fizemos, nós importamos a constante conectaApi que nos trazia tudo que a gente tinha colocado para trazer para outros arquivos, que é tanto a função criarVídeo, quanto a listaVideo, mas dessa vez queriamos usar a criaVideo.</p>
+
+<p>[01:24] Essas funções que são conectadas com a nossa API, elas são assíncronas e elas são declaradas pelo async await, então elas retornam uma promise. Então nós não conseguiríamos acesso aqui até a promise nesse ser resolvida, e o que temos que fazer então? Transformar essa função em assíncrona também. Então lá na linha quatro, no canto superior esquerdo da tela, antes de declarar a function, você vai botar a palavra async. E na linha 12 antes, no centro esquerdo da tela, antes do conectaApi, você vai colocar um await.</p>
+
+<p>[01:53] É importante também avisar que a ordem do que eu coloquei dentro do criarVideo faz sentido, porque se formos no conectaApi é nessa ordem que ele está esperando receber, é título, descrição, URL e imagem. Se eu colocasse em outra ordem eu poderia sem querer mandar a imagem para o campo que ele está esperando uma URL, isso ia dar vários problemas. Então tem que prestar atenção quando estamos enviando algo para uma função, que também está esperando receber algo.</p>
+
+<p>[02:23] Pronto, declaramos ela como assíncrona, ele vai esperar resultar ali o conectaApi.criarVideo, nós pedimos para esperar, porque pode ser que venha a resposta, venha um erro e queiramos mostrar na tela. Se não esperarmos, nunca vamos saber, nunca vamos passar para o usuário esse status. E se ele conseguiu, é importante dar esse feedback também, não só de erro. E para isso, vamos fazer redirecionar a página quando o envio foi feito com sucesso.</p>
+
+<p>[02:53] E para isso, vamos digitar aqui na linha 14, no lado inferior esquerdo da tela, mas dentro da criarVideo depois da await, é window.location.href = "." e dentro das aspas duplas, vamos colocar o diretório do documento envio-concluido.html. Então para chegar lá vamos dar window.location.href = "../pages/envio-concluido.html". Com isso, conseguimos dar um feedback, de tipo conseguiu fazer esse envio, e aí ele vai ser enviado para página de envio concluído.</p>
+
+<p>[03:32] É muito legal desse feedback por questões de melhorar a experiência do usuário. Ele vai entender o que ele está fazendo.</p>
+
+<p>[03:40] Eu fiz tudo isso, e não testamos se funcionava vamos inserir um vídeo lá. Eu vou pegar o vídeo da nossa Scuba Camis, que é conhecendo NestJS. Eu vou copiar o endereço do vídeo, no canto superior esquerdo da tela, e copiar URL do vídeo e vou colocar em Link embed, na parte superior do centro da tela. Mas lembrando que o link é diferente, ele começa com embed, que é htpps:// www.youtube.com/embede a URL. O título do vídeo vai ser Conhecendo o NestJS. A URL do perfil eu vou botar mesa que eu estava botando nos outros lugares, mas se você quiser usar outra imagem pode procurar no Google e só botar a URL.</p>
+
+<p>[04:32] Vou enviar, ele levou a gente para vídeo cadastrado com sucesso e vamos lá na página inicial para ver se funcionou. Eu vou até lá embaixo da página, está funcionando, já temos mais um vídeo inserido na nossa lista, ou seja, conseguimos completar a segunda tarefa que o nosso chefe nos passou que era de fazer essa inserção de vídeo.</p>
+
+<p>[04:53] Agora só faltou a última que é a pesquisa. Olha aqui em cima da AluraPlay, ele tem uma barra de pesquisa no centro superior da tela, e a gente precisa que seria ali um termo, ele vai procurar na lista qualquer um que contém aquele tema que a gente busca.</p>
+
+<p>[05:06] Eu já vou te mostrar como é que faz isso na próxima aula, então não me abandone aqui e te vejo lá.</p>
+
