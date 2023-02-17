@@ -227,3 +227,36 @@
 <p>[07:12] E também exportamos junto com a listaVideos, para poder se utilizar em outros arquivos, porque quando criarmos o arquivo de inserir novos vídeos, vamos poder utilizar.</p>
 
 <p>[07:24] E no próximo vídeo é o que vamos fazer, vamos captar aquele formulário para conseguir usar essa requisição que acabamos de criar, e conseguir efetivamente fazer essa segunda solicitação do nosso chefe. E até lá.</p>
+
+<h2>04. Captando eventos</h2>
+
+<p>[00:00] No último vídeo nós construímos a nossa primeira requisição POST, inclusive, meus parabéns, isso que você acabou de aprender agora vai te acompanhar durante toda essa carreira do desenvolvimento Fron-End, meus parabéns mesmo. E agora precisamos conectar essa função de criação de vídeo onde ela faz a requisição POST, com o nosso formulário do enviarvideo.html.</p>
+
+<p>[00:22] Para começar, vamos colocar uns data attribute no arquivo HTML, como na linha 34 dentro da tag de formulário, que vai ser data-formulario. Na linha 39 que temos o input de URL, vamos botar data-url. Na linha 46, que temos o input de título, vai ter data-titulo. Na linha 52, que é o de imagem, vamos ter data-imagem.</p>
+
+<p>[00:55] Por enquanto é só. Vamos dentro da pasta js, criar o arquivo criarVideo.js, e já vamos aproveitar para importar lá na linha 59 do enviar vídeo, esse arquivo. Então vamos botar script src="..//js/criarVideo.js". E botamos type-"module" também. Salvei, e agora fizemos várias coisas que já tínhamos feito antes, botamos data attribute nos inputs, nos elementos que queríamos, que é aquela estrutura do data hífen e o nome que queremos. Também importamos um arquivo Javascript dentro do arquivo html para ser possível utilizar aqueles scripts dentro dali.</p>
+
+<p>[01:52] Vamos começar a selecionar as coisas dentro do criarVideo.js. Primeiro, eu vou criar uma variável chamada formulário que vai ser constante, const formulario = document.querySelector("{data-formulario}". As outras seleções, eu vou fazer dentro da função, a função vai ser function criarVideo(){}. Dentro nós vamos selecionar os outros data attributes que já tinhamos feito.</p>
+
+<p>[02:32] Então const imagem - document.quersyselector("{data.imagem}");. Nós temos também o const url = document.querySelector("{data-url}").. Por fim, const titulo =document.querySelector ("{data-titulo}");.</p>
+
+<p>[03:20] Aqui seguimos o padrão de todos, definimos uma variável e atribuiu a ela um seletor de elemento, de acordo com o data attributes e selecionamos certinho cada um deles. Só que aqui, estamos selecionando o elemento inteiro, e como ele é um campo de digitação, o que queremos é o que o usuário vai digitar, queremos o valor daquele campo.</p>
+
+<p>[03:43] E para isso, colocamos .value, na linha quatro depois do data imagem, na linha cinco depois do data-url, vamos colocar .value. e a mesma coisa na linha seis. E esse value é literalmente a tradução dele, é valor, valor daquele campo que acabamos de selecionar.</p>
+
+<p>[04:02] Agora a questão da descrição, a descrição do nosso vídeo era o número de visualizações. Eu até já trouxe a problemática de que isso não poderia ser do controle do usuário, e como não temos um contador a gente precisava definir um número.</p>
+
+<p>[04:15] Para isso, vamos criar uma variável chamada descrição do tipo const const descricao = Math.floor(Math.ramdon()*10).toString();.</p>
+
+<p>[04:40] O que eu botei tanta coisa com matemática? Não se assuste, usamos map Math.random e ele traz o número aleatório entre zero e um. Para transformar em um número inteiro, fizemos vezes dez, e ele retornou um número inteiro. O Math.floor ele tenta pegar o menor número entre os valores que estiverem dentro do parênteses dele. Nós tendo finalmente um número, transformamos em string para conseguir depois passar para a nossa requisição, não podia ser um número aqui para transformar na frase, precisávamos de uma string.</p>
+
+<p>[05:19] Então já temos aqui todos os campos que a gente precisava, a imagem, a URL, o título e um número aleatório para descrição. E tendo todos esses valores eu quero que eles sejam captados depois de eu apertar no botão para enviar o formulário, porque se eles captarem já no início não faria muito sentido. Primeiro, porque não teria nada escrito, agora eu quero que ele seja depois que estiver tudo completo, ou seja, depois de clicar no botão.</p>
+
+<p>[05:45] Então, eu vou pegar o formulário eu vou botar um formulario.addEventListener("submit", evento => criarVideo(evento)). O que eu fiz? Eu botei como diz a tradução do addEventListener, um ouvinte de ouvinte, é um fofoqueiro. Ele vê quando enviamos o formulário, que é quando enviamos o submit daquele formulário e quando isso acontece ele conta a fofoca, ele manda ali o evento, o que aconteceu para a função criarVideo.</p>
+
+<p>[06:35] Quando ele enviasse isso, e ele atualizar minha página, não é o que eu quero, que é a atitude padrão quando ele recebe o ato de enviar. Então eu vou botar lá na function criarVideo, na linha três para receber esse evento. O que acontece quando eu clico? Dentro das chaves vou colocar um evento function criarVideo(evento){evento preventDefault();. Com isso, vou prevenir que a ação padrão do envio de formulário aconteça, que é esse recarregamento, porque não vou conseguir ver nada, ele vai atualizar a página.</p>
+
+<p>[07:09] E o que mais acontece aqui? O que eu preciso fazer? Já preenchi tudo, já detectei para ele só captar os valores depois de eu preencher. Eu acredito que só falta enviar para a função, aquela função POST, nossa requisição.</p>
+
+<p>[07:25] E já que fizemos bastante coisa aqui, já interagimos bastante com o DOM, já olhamos um fofoqueiro com a add.EventListener, eu vou deixar para o próximo vídeo para fazer esse envio. Então até daqui a pouco.</p>
+
