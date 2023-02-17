@@ -186,3 +186,44 @@
 
 <p>[06:32] Primeira tarefa que o nosso chefe, líder técnico da Alura pediu concluída. Nossa segunda, era como inserir novos vídeos nessa lista. E no próximo vídeo, nós vamos fazer isso. Até lá.</p>
 
+<h1>Módulo 03. Criando novos elementos.</h1>
+
+<h2>02. Requisição POST</h2>
+
+<p>[00:00] Agora a pouco, nós vimos como fazer manualmente a inserção de novos vídeos na nossa lista do AluraPlay. Eu também falei de vários problemas que poderiam acontecer fazendo dessa maneira. Então nessa aula nós vamos criar outro tipo de requisição, que faz com que seja possível salvar novos dados no db.json.</p>
+
+<p>[00:18] Então para isso. Vamos lá no conectaApi.j e na linha seis, onde fecha a listaVideos, vamos dar dois Enters e vamos criar outra função, vai ser async function criaVideo() {}. Dentro das chaves nós vamos criar outra conexão const conexao = await fetch(""http://localhost:3000/videos",)} fechas e vamos fazer outra chaves. Vamos colocar method:"POST",.</p>
+
+<p>[01:11] Lembra que quando eu falei que quando fazíamos o fetch, o único parâmetro obrigatório era URL. E se não especificássemos mais nada, o método que estávamos usando, a requisição que estávamos fazendo era GET? Para declarar outros tipos de requisições, é assim, vamos colocar várias outras configurações entre chaves. Inclusive, qual que vai ser o tipo de requisição, que é o método.</p>
+
+<p>[01:37] No nosso caso, agora vamos criar uma requisição POST. Mas não para por aí, temos outras coisas para colocar aqui dentro, como bota uma vírgula depois do POST, dá um Enter e vamos vai colocar headers: {} e abre e fecha chaves, porque também vai ter um conjunto de configurações que poderiam ser feitas, mas vamos botar um só, que é "Content-type":application/json".</p>
+
+<p>[02:15] O Content-type que está dentro do headers ele serve para especificar que tipo de arquivo que está sendo enviado, ou recebido. Então quando estamos enviando, ou quando estamos recebendo um arquivo de json, especificamos o tipo do conteúdo, que é o Content-type, como application/json.</p>
+
+<p>[02:33] E agora Mônica tem mais coisa para colocar aqui? Tem. Então depois então do fechamento das chaves do headers, vamos botar uma vírgula, dá um Enter para ficar embaixo, vamos botar body:JSON.stringify({}). Aqui dentro, vamos enviar os dados que queremos cadastrar nesta requisição, que é título, descrição, URL e imagem. Então vamos botar título = título, que vamos receber uma variável chamada título, não declaramos ainda, mas vamos. Depois vírgula embaixo, descricao =. Onde estou falando igual são dois pontos,url: url, imagem: imagem.</p>
+
+<p>[03:30] Então, o que estamos fazendo aqui? Estamos enviando um body, que como a tradução diz, ele é o corpo da requisição, e quando colocamos as chaves com essas coisas ali dentro no lado superior esquerdo da tela, estamos enviando um objeto de variáveis, de valores, indiferentes, pode ser um número, pode ser uma letra, estamos enviando um objeto de valor.</p>
+
+<p>[03:49] Só que para enviar uma requisição, precisamos enviar uma string. Então esse JSON.stringify ele vai transformar em uma string tudo aquilo ali que a gente estamos enviando. Assim, vai ser possível criar solicitação POST, a requisição POST.</p>
+
+<p>[04:03] Agora precisamos fazer alguns ajustes. Como eu disse, quando botei titulo: título é porque esse segundo título que está sendo atribuído, era para recebermos como variável, para fazer isso, vamos lá na linha oito e dentro dos parênteses, vamos botar esses valores título, descrição, URL, vírgula imagem.</p>
+
+<p>[04:22] Agora vamos conseguir enviar para a variável, enviar para a função criarVideo esses valores, e esses valores vão ser atribuídos a essas propriedades do body.</p>
+
+<p>[04:34] Também, vou ajustar um negócio aqui. Lembra que a descrição ela era tantas mil visualizações. Se eu conseguir colocar manualmente esse número de visualizações não faz sentido, porque quando vamos em outras plataformas de compartilhamento de vídeo isso não é do controle do usuário, isso é de acordo com os cliques. Como ainda não vamos implementar uma função que tem um contador, vamos fazer um número tais visualizações.</p>
+
+<p>[05:05] Então vamos criar uma string dentro da descrição. Na linha 16 vamos botar descricao entre crases, vamos apagar a palavra descrição, vai botar ${descricao}. Depois do fechamento das chaves do cifrão, lembra que isso é uma template strings? Então cifrão, chaves, a variável, chaves e a frase que quisermos, vai ser mil visualizações.</p>
+
+<p>[05:35] E como eu disse, é o template string que vimos antes, então vamos botar uma variável que vai se transformar uma string junto com o resto da frase, não vai aparecer que foi uma variável colocada ali. Dependendo do número, 5.000 visualizações, 10.000 visualizações, vai ficar bem variável e não vai ter influência do usuário, vai ser sempre tantas mil visualizações.</p>
+
+<p>[05:59] Como é que vamos retornar o resultado dessa conexão para o usuário? Primeiro vamos também fazer uma conexão convertida aqui, então lá na linha 21 dá um Enter, e cria outra variável com o nome conexaoConvertida = await conexao.json();.</p>
+
+<p>[06:19] E aqui é o mesmo esquema, quando fazemos as aquisições, o fetch sendo assíncrono ele vai retornar uma promessa, e vamos esperar o resultado dela.</p>
+
+<p>[06:27] Então demos um await, transformou o retorno em json, para conseguirmos visualizar, e vamos retornar para o usuário essa resposta através de um return conexaoConvertida;. Depois que pegamos as manhas da assíncrona, reutilizamos em vários locais.</p>
+
+<p>[06:45] E por fim, na linha 28, onde estávamos importando listaVideos, vai botar uma vírgula no final e vai importar a outra função que criamos agora, CriaVideo. Dessa maneira, criamos toda a estrutura de uma função assíncrona, que faz uma conexão com a API e cria uma requisição POST, que é a de cadastrar novas coisas lá na nossa API, no nosso db.json.</p>
+
+<p>[07:12] E também exportamos junto com a listaVideos, para poder se utilizar em outros arquivos, porque quando criarmos o arquivo de inserir novos vídeos, vamos poder utilizar.</p>
+
+<p>[07:24] E no próximo vídeo é o que vamos fazer, vamos captar aquele formulário para conseguir usar essa requisição que acabamos de criar, e conseguir efetivamente fazer essa segunda solicitação do nosso chefe. E até lá.</p>
