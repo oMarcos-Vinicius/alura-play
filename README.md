@@ -286,3 +286,30 @@
 
 <p>[05:06] Eu já vou te mostrar como é que faz isso na próxima aula, então não me abandone aqui e te vejo lá.</p>
 
+<h1>Módulo 04. Buscando Elemento</h1>
+
+<h2>02. Busca de vídeos</h2>
+
+<p>[00:00] Já conseguimos concluir duas das tarefas que recebemos, a de listagem e a de inserção de novos vídeos. Só falta uma, foi bastante trabalho, mas chegamos aqui.</p>
+
+<p>[00:11] Imagine que essa lista que a gente está mostrando no nosso a AluraPlay seja gigante, muito maior do que ela já é, e você quisesse procurar um só vídeo lá dentro, sem uma ferramenta de busca ia ser muito complicado. Imaginem em 100 vídeos você quer um que diga sobre JavaScript. Então para facilitar essa vida, nós vamos implementar uma ferramenta de busca nesse campo de digitação, que tem no meio da tela da na parte superior, da home da AluraPlay.</p>
+
+<p>[00:38] Para isso, vamos olhar o nosso servidor local. Digite aí no seu navegador a URL que você está usando para ele, no meu caso era localhost:3000/vídeos. Se entrarmos aqui, conseguimos acessar todos, a lista inteira de qualquer uma das propriedades de vídeos que tem aqui.</p>
+
+<p>[00:59] Agora olha só se eu botar esta URL localhost:3000/videos?q=memes. Se eu digitar isso vai aparecer o único vídeo da minha lista que tem a palavra memes em alguma das propriedades dele.</p>
+
+<p>[01:23] Nós vamos entender o que eu acabei de fazer com essa URL. A nossa URL padrão era localhost:3000 e a categoria que eu queria, que era vídeos. Em seguida, eu botei um sinal de interrogação, era como se eu perguntasse para esses vídeos se alguma coisa que eu vou botar em seguida existe. Vídeos isso aqui existe? Em seguida, eu vou botei um q que significa query, mas ali no caso ele funciona como se eu fosse pesquisar geral dentro do meu db.json, algum lugar que vai ter tal palavra. Porque se eu botasse ali alguma das propriedades como título, descrição e etc., eu teria que botar exatamente como estivesse na propriedade para achar aquele vídeo.</p>
+
+<p>[02:10] Dessa maneira eu consigo botar uma palavra e procurar em geral, porque às vezes eu posso procurar a palavra memes que eu acabei de colocar e ter vários resultados.</p>
+
+<p>[02:20] Em seguida, eu botei o igual que era para definir que eu queria um que fosse igual o termo que eu vou botar agora em seguida, que foram os memes. Dessa maneira, eu consegui perguntar para os vídeos se existem vídeos com a palavra memes e ele me retornou o único que tinha.</p>
+
+<p>[02:35] Agora, como que eu posso fazer para aplicar isso no meu código? Vamos abrir o Visual Studio Code, e no arquivo conectaApi.js vamos criar outra função assíncrona, aqui na linha 27 eu vou criar ela, que vai ser async function buscaVideo(){}; Lá dentro das chaves vou criar uma const que é uma variável do tipo consante const conexao = await fetch(http://localhost:3000/videos?q=${termoDeBusca}`)`. E já que estou botando algo que vou ter que receber e colocar ali, então lá dentro do parênteses da linha 27, quando eu criei a função, eu também vou colocar um termo de busca lá async function buscaVideo({termoDeBusca){. No final, eu vou colocar um const conexaoConvertida = conexao.json();. Depois, por fim, vou retornar o conexaoConvertida return conexaoConvertida;.</p>
+
+<p>[04:03] Olha só, que parecido que é com o listaVideos, é muito parecido, porque declaramos como uma função assíncrona, criamos a variável conexão, que ela vai receber um fetch, depois a gente vamos converter o emaranhado de informações que traz em bytes para json, e depois vamos retornar esse valor para usar na tela.</p>
+
+<p>[04:24] Super semelhante, só que dessa vez nós temos uma diferença na URL, que são os parâmetros aqui para dizer que eu estou pesquisando alguma coisa que é interrogação, Q e o igual e o termo de busca que eu usei de maneira como uma template string. Porque aí, eu posso enviar para essa função quando eu for chamar ela, e ela vai se adaptar e no lugar do fetch vai ficar ali meu termo de busca direito, e vai ser como a URL que eu pesquisei no meu navegador, e vai retornar o vídeo que tenha só o que eu quero.</p>
+
+<p>[04:55] Agora só falta exportar que nem os outros. Então lá na linha 36, no centro esquerdo da tela, onde estávamos exportando o criarVideo, nós vamos colocar uma vírgula e em seguida vamos colocar o buscaVideo.</p>
+
+<p>[05:07] Agora tendo isso já conseguimos fazer essa busca dinâmica, vamos aplicar isso direto no nosso HTML, brincar um pouco com o DOM, eu te vejo no próximo vídeo para dar continuidade a essa etapa.</p>
