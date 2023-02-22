@@ -8,6 +8,11 @@ async function buscarVideos(evento) {
     const buscar = await conectaApi.buscaVideo(dadosDePesquisa);
 
     const lista = document.querySelector("[data-lista]");
+
+    while (lista.firstChild) {
+        lista.removeChild(lista.firstChild)
+    }
+
     buscar.forEach(elemento => lista.appendChild(constroiCard(elemento.titulo, elemento.descricao, elemento.url, elemento.imagem)));
 }
 

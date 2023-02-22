@@ -342,3 +342,21 @@
 
 <p>[03:28] Precisaríamos que fosse apagada toda a lista geral e aparecesse só o da busca. Então para fazer isso eu vou te mostrar no próximo vídeo então não deixe de conferir lá.</p>
 
+<h2>06. Lista filtrada</h2>
+
+<p>[00:00] Acabamos de implementar a busca no Alura Play de acordo com o termo que inserimos no campo de pesquisa. Só que ao testar deu um problema, ao invés da lista inteira desaparecer e aparecer só aquele item que queríamos, ele apareceu toda a lista, inclusive o item que queríamos. Nós precisamos fazer uma maneira que remova todos os outros itens da lista, que já estavam na tela antes de imprimirmos esse da busca.</p>
+
+<p>[00:25] Então para isso. Volta lá no Visual Studio Code comigo. Antes do forEach que está fazendo essa impressão, vamos fazer um while (lista.firstChild){lista.removeChild(lista.firstChild.};. Salvei, vamos ver o resultado, já estou ansiosa.</p>
+
+<p>[00:49] Botei aqui no campo de pesquisa, no centro superior da tela, no navegador e cliquei no botão de pesquisa. Agora corretamente ele só está aparecendo o vídeo que eu pesquisei, que foi o memes do JavaScript.</p>
+
+<p>[01:00] O que é que foi que fez essa função aqui? Ela faz assim, é um laço de repetição, o enquanto, ele vai fazer alguma coisa enquanto a condição que colocamos for verdadeira, a condição que eu botei foi o lista.firstChild. Então enquanto aquela lista ter um primeiro filho, quer dizer que tem coisa lá dentro, enquanto isso for verdadeiro eu quero remover o primeiro filho da lista, aí ele fica nesse looping até eu apagar todos os filhos que a lista tem. Então vai ficar a lista vazia e depois em seguida, eu vou criar aquela lista de itens que eu quero pesquisar, só dos itens que estão de acordo com o termo que eu pesquisei.</p>
+
+<p>[01:43] Então é bem legal ver essa maneira de remover filhos de um pai, do container, porque são algumas situações que podem acontecer em várias outras ocasiões, em vários outros projetos seus. Então já fica a dica aqui de como remover vários itens filhos de itens pais.</p>
+
+<p>[02:02] Agora já temos a ferramenta de busca, já temos a inserção de vídeo, já temos a listagem de vídeo inteira na nossa página. Ou seja, concluímos todos os pedidos do nosso líder técnico.</p>
+
+<p>[02:15] Mas que tal darmos uma impressão melhor? Vamos colocar coisas a mais nesse projeto, que tal fazer tratamento de erros?</p>
+
+<p>[02:22] Na próxima aula. Vamos ver só sobre isso. E eu te vejo por lá.</p>
+
