@@ -313,3 +313,32 @@
 <p>[04:55] Agora só falta exportar que nem os outros. Então lá na linha 36, no centro esquerdo da tela, onde estávamos exportando o criarVideo, nós vamos colocar uma vírgula e em seguida vamos colocar o buscaVideo.</p>
 
 <p>[05:07] Agora tendo isso já conseguimos fazer essa busca dinâmica, vamos aplicar isso direto no nosso HTML, brincar um pouco com o DOM, eu te vejo no próximo vídeo para dar continuidade a essa etapa.</p>
+
+<h2>05. Reutilizar funções</h2>
+
+<p>[00:00] Já fizemos uma função que consegue buscar no nosso servidor local algum termo, e também já testamos a associação com ela e o nosso campo de pesquisa. Testamos no console.log e está funcionando normal.</p>
+
+<p>[00:12] Agora se vermos o retorno que é uma lista de itens do nosso servidor local, é super semelhante ao que tínhamos feito no mostrarVideos. Então temos duas opções, reutilizar o código que estava lá, ou repetir o código. Eu vou optar por reutilizar, então vem comigo para ver como podemos reutilizar funções.</p>
+
+<p>[00:34] Abre o Visual Studio Code, com o projeto aberto e no mostrarVideos.js, na linha cinco, no centro superior esquerdo da tela, onde construímos o card, vamos colocar um export default function constroiCard, nós só vamos colocar aquele export default no início.</p>
+
+<p>[00:49] Agora lá em buscarVideos.js, vamos fazer um import na linha dois, no lado superior esquerdo da tela, que vai importar import constroiCard from "./mostrarVideos.js";.</p>
+
+<p>[01:05] Agora estamos, ao invés de importando uma variável que fornecia várias funções, estamos importando exatamente a função que queríamos, que é a constroiCard, que está dentro do mostrarVideos.</p>
+
+<p>[01:20] E agora para usar ela vai ser bem semelhante ao que tínhamos feito. Precisa ir no index.html pegar qual que é o data attributes da lista, que é data-lista e dentro do buscarVideo, onde tinha o console.log, na linha nove, no centro superior esquerdo da tela, já podemos apagar ele. Agora ali, na linha nove, vamos criar outra variável constante que vai ser a lista.</p>
+
+<p>[01:41]Aí ela vai receber um const lista = document.querySelector("[data-lista]");. Agora embaixo disso, já conseguimos usar o busca.forEach(). Aí, cada item da lista que retornar da busca, vai acontecer alguma coisa. Então vamos colocar um elemento aqui para ser considerado cada item da lista busca.forEach(elemento => lista.appendChild()).</p>
+
+<p>[02:17] Aí agora é a mesma lógica do que tínhamos feito antes, para cada item da lista vai acontecer alguma coisa, e essa alguma coisa vai ser um filho que vai ser anexado dentro da lista.</p>
+
+<p>[02:29] Então o que tínhamos feito aqui, quando fizemos o mostrar vídeos? Chamamos a função constroiCard, busca.forEach(elemento => lista.appendChild(constroiCard(elemento.titulo, elemento.descricao, elemento.url, elemento.imagem)). Novamente, lá no constroiCard vou dar um Enter, só para ficar melhor a visualização do projeto.</p>
+
+<p>[02:51] Agora criamos um card para cada elemento da lista, e cada um que foi criado foi anexado ao pai, que é o elemento ul.</p>
+
+<p>[03:00] Então, salvei, vamos olhar na tela, se eu pesquisar o que acontece. Nosso último vídeo, no canto inferior direito da tela, é o Conhecendo NestJS. Então vou pesquisar memes na barra de pesquisa, no centro superior da tela, e vou clicar no botão de pesquisar.</p>
+
+<p>[03:14] Agora lá embaixo, no canto inferior direito da tela, ele aplicou outro vídeo que tenha o nome de memes, que já tinha na lista antes. Porque ele está pesquisando, e está criando um filho, e está inserindo lá no final.</p>
+
+<p>[03:28] Precisaríamos que fosse apagada toda a lista geral e aparecesse só o da busca. Então para fazer isso eu vou te mostrar no próximo vídeo então não deixe de conferir lá.</p>
+
