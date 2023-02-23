@@ -414,3 +414,19 @@
 
 <p>[04:06] E agora o que é a próxima coisa que fizemos e que podemos procurar possíveis erros? É a busca, foi a última coisa que fizemos. Então no próximo vídeo vamos evitar um possível problema com a busca de vídeos. E até lá.</p>
 
+<h2>05. Busca não encontrada</h2>
+
+<p>[00:00] Já fizemos dois tipos de validações de erros, e ambos eram diferentes. A primeira era de acordo com o tamanho da lista de vídeos, caso não existisse e isso fosse causado por algum problema, como a URL da API estar errada, ou a API estiver fora do ar, vai aparecer a mensagem que não existe nenhum vídeo naquela API.</p>
+
+<p>[00:19] Aí, se nós estivéssemos enviando novos vídeos e alguma coisa desse errado, vai aparecer um alerta na tela falando que não foi possível enviar o vídeo. A única coisa que falta é botar um erro na barra de pesquisa, caso pesquisemos algum termo que não exista na lista.</p>
+
+<p>[00:35] Então vamos fazer uma validação para isso. Lá no Visual Studio Code, dentro do arquivo buscarVideos.js, podemos depois daquele busca forEach na linha 16, no centro esquerdo da tela. Dá um Enter para criar alguma coisa ali embaixo. O que vamos fazer? Que validação vamos fazer? Deixa eu botar um if (busca.lenght == 0 {lista.innerHTML = < h2 class="mensagem__">Não existem vídeos com esse termo</ h2>}.</p>
+
+<p>[01:33] Salvei, vamos testar, pesquisar algum termo que não exista ali. Deixa eu pensar em um, eu acho que não temos nada com Kotlin. Então vou pesquisar Kotlin, na barra de pesquisar no centro superior da tela. Eu procurei, não existia nenhum vídeo na lista com Kotlin e aí retornou para nós a mensagem de que não existe vídeo com esse termo.</p>
+
+<p>[01:53] Aqui nós fizemos outro tipo de validação, validamos de acordo com o tamanho da lista, usamos a condicional C, que é o if, que nem fizemos lá na verificação do criarVideo, só que agora pesquisando assim se o tamanho da lista foram igual a zero, ou seja, que não tem nada lá dentro, vamos colocar um lista.innerHTML = mensagem título, e aí ele vai aparecer a mensagem que queremos na tela.</p>
+
+<p>[02:21] Então já fizemos três tipos de validações de erro, imagina o quão o nosso chefe não vai ficar feliz que a gente conseguiu ainda se preocupar com a experiência do usuário, e conseguimos um baita projeto e aprendemos um monte de coisa.</p>
+
+<p>[02:33] Eu quero te deixar os parabéns por ter chegado até aqui e eu te vejo até a próxima.</p>
+
