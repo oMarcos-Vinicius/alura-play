@@ -386,3 +386,31 @@
 
 <p>[03:21] No próximo vídeo, vamos para o próximo passo, que é evitar erros na criação de vídeos. E eu te vejo lá para dar continuidade no tratamento de erros. Até lá.</p>
 
+<h2>03. Inserção de vídeos</h2>
+
+<p>[00:00] Já nos prevenimos contra erros no carregamento da lista. Agora vamos nos prevenir contra erros na inserção de novos vídeos.</p>
+
+<p>[00:07] Primeiro vou aqui no navegador, que estou com o Alura Play aberto, e vou clicar no botão superior direito, que é o de inserção de vídeos, para ir para o formulário. Agora eu vou abrir o Visual Studio Code e lá no arquivo conectaApi.js, na linha 21, no centro inferior esquerdo da tela, eu vou criar um if (!conexao.ok) {throw new Error ("Não foi possível enviar o vídeo");}. Salvei e não vai acontecer nada.</p>
+
+<p>[00:50] Mas vamos entender o que eu estou planejando aqui? Eu botei uma condicional, só que a condicional do if, ela é bem como se fosse a tradução. Se algo for verdade, ele vai fazer alguma coisa, aí se algo for verdade, imagina se deu tudo certo na requisição, a conexão vai estar ok sim. Agora se botarmos a exclamação antes, quer dizer que é ao contrário, ou seja, se a conexão não estiver ok, se isso for verdade, que deu erro aí, ele vai jogar um novo erro falando que não foi possível enviar o vídeo.</p>
+
+<p>[01:25] Aí eu quero receber esse erro em algum lugar, e para isso eu vou lá no criarVideo.js e vou fazer na linha 11, no centro esquerdo da tela, antes de ele fazer a criação do vídeo, eu vou botar um try, abre e fecha chaves. Aí o fechamento das chaves eu vou botar lá depois do window.location.href, no centro esquerdo da tela, na linha 14, vou dar um Enter e botar embaixo.</p>
+
+<p>[01:46] Aí ele vai tentar isso, e depois vou botar um catch(e) { alert (e); }. Vou salvar e vamos testar isso dar erro aqui. Eu vou lá no conectaApi.js e vou errar a URL de novo, tipo agora na linha nove, que era quando fazíamos a conexão para o post. Botei a URL errada, salvei.</p>
+
+<p>[02:17] Vamos tentar enviar qualquer vídeo aqui. Eu vou botar até algumas coisas que já estavam pré-preenchidas aqui na tela, em link embed, título do vídeo e imagem de perfil no centro da tela, e vou apertar e enviar.</p>
+
+<p>[02:26] Ele já me apareceu um erro alerta, no centro superior da tela, de error não foi possível enviar o vídeo. Então já estamos tratando esse erro. Mas vamos entender como é que ele foi feito esse erro.</p>
+
+<p>[02:35] Eu já vou na linha nove arrumar, no lado superior esquerdo da tela, para não correr o risco de eu enviar esse código para alguém com erro de propósito.</p>
+
+<p>[02:43] Então vou me estender na linha 21, no centro esquerdo da tela, eu fiz a verificação, se tinha o problema acontecendo que a conexão não estava ok. Aí eu joguei esse erro com essa mensagem. Aí no criarVideo, lá na linha 11, no centro esquerdo da tela, eu botei para ele tentar criar esse vídeo. Caso desse algum problema lá dentro da função criarVideo, ele ia lembra, jogar um erro.</p>
+
+<p>[03:06] Aí eu usei o catch para pegar esse erro, e quando eu botei aquele (e), ele puxa aquela mensagem que foi enviada, que foi jogada no throw new error. Aí depois eu só usei para imprimir ela um alerta, botei alert(e). Aí ele imprimiu exatamente a mensagem que eu mandei jogar.</p>
+
+<p>[03:26] Eu escolhi aparecer a mensagem um erro, como um alerta só para fazer um pouco diferente do que tínhamos feito antes. E novamente eu te convido se você quiser botar a sua criatividade e fazer outro tipo de mensagem de erro para esse caso, sinta-se à vontade, é muito bacana para treinar nossos conhecimentos de html, de CSS, de Javascript.</p>
+
+<p>[03:48] E também se quiser compartilhar suas outras opções de amostra de erros, aí eu vou gostar muito, porque eu também estou um pouco sem criatividade aqui e eu gosto de ver quais as decisões e como vocês tomaram essas decisões de acordo com o código. Esse projeto é seu, então sinta-se à vontade para mexer nas coisas.</p>
+
+<p>[04:06] E agora o que é a próxima coisa que fizemos e que podemos procurar possíveis erros? É a busca, foi a última coisa que fizemos. Então no próximo vídeo vamos evitar um possível problema com a busca de vídeos. E até lá.</p>
+
