@@ -360,3 +360,29 @@
 
 <p>[02:22] Na próxima aula. Vamos ver só sobre isso. E eu te vejo por lá.</p>
 
+<h1>Módulo 05: Lidando com erros</h1>
+
+<h2>02. Carregamento da lista</h2>
+
+<p>[00:00] Bom, terminamos todas as tarefas que nosso líder técnico tinha solicitado para nós. Conseguimos colocar a lista de vídeos, conseguimos fazer a inserção de novos vídeos e também a busca.</p>
+
+<p>[00:12] Aí eu te mostrei que podíamos impressionar um pouquinho mais e colocar umas mensagens de erro. Isso vai melhorar muito a experiência do usuário do nosso site, e isso é um muito importante, porque no final quem importa é quem vai acessar o nosso projeto.</p>
+
+<p>[00:27] Então a primeira coisa que eu vou fazer, vou seguir em ordem, a primeira coisa que nós fizemos foi listar os vídeos na tela. Então a primeira mensagem de erro que eu vou colocar é se os vídeos não aparecerem, se os vídeos da lista não aparecerem por algum motivo.</p>
+
+<p>[00:42] Então nós vamos no Visual Studio Code, no arquivo mostrarVideos.j e onde criamos a lista API, no centro superior esquerdo da tela, vamos colocar um try abre chaves e fecha chaves, depois de fazer o forEach, depois que fizemos tudo aquilo, mais ou menos na linha 26 no centro esquerdo da tela.</p>
+
+<p>[01:05] Fechou aqui, vamos colocar um } catch{}. O que aconteceu aqui? Botamos um tente, ele vai tentar conectar com API, e tentar imprimir na tela. Se não acontecer, se der algum problema ele vai catch, ele vai pegar esse erro e vai fazer alguma coisa, que é o que iamos inserir dentro dessa chaves, que vai ser um lista.innerHTML =< h2 class="mensagem__titulo">. Depois, nas aspas do fechamento vou colocar a mensagem lista.innerHTML = < h2 class="mensagem__titulo"> não foi possível carregar a lista de vídeos< h2.</p>
+
+<p>[02:00] Salvei. Então aqui eu só coloquei um texto, um título dizendo que não foi possível carregar a lista de vídeos dentro do elemento ul caso não seja possível carregar os lis.</p>
+
+<p>[02:14] Então eu vou no conectaApi na parte superior esquerda da tela, e vou errar de propósito, para não ser possível carregar. Lá na linha dois, onde tínhamos fetch URL localhost:3000/videos, vou tirar o “s” e vai transformar em “video”. Eu salvei e vamos testar como isso vai aparecer.</p>
+
+<p>[02:32] Pronto, vim aqui no navegador aquela URL que eu deixei lá não existe, aí ele retorna para nós a mensagem não foi possível carregar a lista de vídeos, no canto superior esquerdo da tela. Mesmo que não informe exatamente qual foi o problema, pelo menos agora o usuário sabe que houve algum problema.</p>
+
+<p>[02:47] E é bem legal fazer essas coisas, porque acabamos treinando um pouco mais de html e CSS. Vou voltar aqui no conectaApi, na linha dois, na parte superior esquerda da tela, e vou voltar com aquela URL correta.</p>
+
+<p>[02:59] Agora temos um tratamento na lista de vídeos funcionando, e se você se sentir assim inspirado, eu recomendo tentar fazer uma mensagem de erro melhor, tentar botar algumas coisas mais legais ali, ou até fazer outras verificações, quais erros que são possíveis acontecer, aí fica assim a seu critério, use a criatividade a seu favor.</p>
+
+<p>[03:21] No próximo vídeo, vamos para o próximo passo, que é evitar erros na criação de vídeos. E eu te vejo lá para dar continuidade no tratamento de erros. Até lá.</p>
+
